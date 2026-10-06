@@ -1,0 +1,9 @@
+V7 Home polish update
+- Removed the large empty rhythm between members and founder content by using a compact local founder section.
+- Homepage now shows 6 members in a complete desktop row instead of leaving an orphan card.
+- Journey images changed to three distinct, cleaner visual sources.
+- Adam/Hawa section compressed and copy cleaned up.
+- Safety image/overlay rebuilt for stronger contrast and readability.
+- Registration, stories and final CTA compressed.
+- Stronger pink frame, floral accents, hearts/sparkles, and tighter spacing added through app/globals.css.
+- This package contains the APP folder only and expects the V5 public assets already present in the project.

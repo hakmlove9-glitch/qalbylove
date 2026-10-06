@@ -1,0 +1,18 @@
+QalbyLove Visual Refresh — V4
+
+What was improved in this pass:
+- Increased visual variety across the site instead of repeating the same hero feeling everywhere.
+- Regenerated diverse couple images, assistant portraits, and page poster visuals.
+- Added route-aware banner metadata in MemberShell so each major section feels more distinct in copy and presentation.
+- Refreshed dashboard/profile/pricing/payments/signup/stories/knowledge/photo visuals with different compositions.
+- Improved avatar fallback logic so different member cards can show different fallback images instead of a single repeated default.
+- Updated profile page fallback image logic to use the smarter avatar selector.
+- Kept all image references local inside the project so nothing depends on remote placeholders.
+
+Validation completed here:
+- Static import/reference check passed.
+- Image asset references are present locally.
+
+Note:
+- Full Next.js production build could not be executed in this container because package installation was incomplete in the environment.
+- Project code and assets are prepared in the package; please run npm install then npm run build in your local/dev environment.

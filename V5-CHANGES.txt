@@ -1,0 +1,19 @@
+QalbyLove V5 — Visual Rebuild Pass
+
+Applied in this pass:
+- Rebuilt the homepage hero composition so it uses a clean couple photo as the background and separate floating portrait cards, avoiding the previous nested UI-inside-image look.
+- Enlarged and redesigned public member cards with full portrait imagery, stronger profile information, and clearer actions.
+- Updated fallback member image selection with member IDs as seeds and larger male/female image pools to reduce repeated faces.
+- Reworked the journey section so each step uses a different visual (male / female / couple) instead of repeating the same couple photo three times.
+- Rebuilt Adam/Hawaa section with separate male/female assistant portraits and image-backed feature cards.
+- Rebuilt the safety section around a large dedicated safety visual plus four clearer safety cards.
+- Rebuilt the free-registration section with a strong photographic panel instead of another text-only block.
+- Reworked logged-in MemberShell page heroes into route-aware layouts: messages, profile, photos, online, search, subscriptions, knowledge, safety/settings, dashboard.
+- Reworked public directory/search hero for visitors so public browse pages no longer share a plain text header.
+- Visitor browsing remains open; registration is only requested on interaction.
+
+Checks run in this environment:
+- Static internal import check: PASS
+- TypeScript transpile syntax check for modified TS/TSX files: PASS
+
+Full production build requires dependencies to be installed locally (`npm install` then `npm run build`).

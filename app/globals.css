@@ -1,0 +1,1885 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  direction: rtl;
+  --qalby-ink: #2d1020;
+  --qalby-muted: #7c6a74;
+  --qalby-rose: #ef2d69;
+  --qalby-rose-dark: #b20f4e;
+  --qalby-pink: #ff7ca5;
+  --qalby-blush: #fff3f7;
+  --qalby-peach: #fff7f2;
+  --qalby-wine: #4d0b28;
+  --qalby-gold: #e4ab49;
+  --qalby-border: #f3dce5;
+  --qalby-success: #17b777;
+  --qalby-sky: #299ee8;
+  --qalby-amber: #f2a51a;
+  --qalby-shadow: 0 18px 55px rgba(79, 12, 40, .07);
+  --qalby-shadow-lg: 0 28px 85px rgba(79, 12, 40, .12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  direction: rtl;
+  scroll-behavior: smooth;
+  background: #fff9fb;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  direction: rtl;
+  text-align: right;
+  color: var(--qalby-ink);
+  background:
+    radial-gradient(circle at 7% 8%, rgba(255, 153, 186, .18), transparent 24rem),
+    radial-gradient(circle at 92% 16%, rgba(255, 219, 191, .24), transparent 27rem),
+    linear-gradient(180deg, #fffdfd 0%, #fff7fa 45%, #fffdfc 100%);
+  font-family: "Tajawal", "Cairo", "Segoe UI", Tahoma, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid rgba(239, 45, 105, .65);
+  outline-offset: 2px;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+::selection {
+  background: #ef2d69;
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fff5f8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ed9ab7;
+  border: 2px solid #fff5f8;
+  border-radius: 999px;
+}
+
+@layer components {
+  .ql-container {
+    @apply mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8;
+  }
+
+  .ql-card {
+    @apply rounded-[28px] border bg-white;
+    border-color: var(--qalby-border);
+    box-shadow: var(--qalby-shadow);
+  }
+
+  .ql-soft-card {
+    @apply rounded-[24px] border bg-white/90;
+    border-color: #f7e4ea;
+    box-shadow: 0 10px 28px rgba(79, 12, 40, .05);
+  }
+
+  .qalby-card {
+    @apply rounded-[28px] border bg-white;
+    border-color: var(--qalby-border);
+    box-shadow: var(--qalby-shadow);
+  }
+
+  .ql-btn-primary,
+  .qalby-button {
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-3 font-black text-white transition duration-300;
+    background: linear-gradient(135deg, #f53d77, #c80d4f);
+    box-shadow: 0 12px 30px rgba(218, 27, 94, .22);
+  }
+
+  .ql-btn-primary:hover,
+  .qalby-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 34px rgba(218, 27, 94, .28);
+  }
+
+  .ql-btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl border bg-white px-5 py-3 font-black transition duration-300;
+    border-color: #f4bdd0;
+    color: #c70f4f;
+  }
+
+  .ql-btn-secondary:hover {
+    background: #fff4f8;
+    transform: translateY(-1px);
+  }
+
+  .ql-btn-glass {
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl border border-white/40 bg-white/10 px-5 py-3 font-black text-white backdrop-blur-xl transition duration-300;
+  }
+
+  .ql-btn-glass:hover {
+    background: rgba(255, 255, 255, .18);
+    transform: translateY(-2px);
+  }
+
+  .ql-icon-button {
+    @apply grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-rose-200 text-rose-500 transition duration-300;
+  }
+
+  .ql-icon-button:hover {
+    @apply border-rose-500 bg-rose-50 text-rose-600;
+    transform: translateY(-1px);
+  }
+
+  .ql-input {
+    @apply w-full rounded-2xl border bg-white px-4 py-3.5 text-sm font-bold outline-none transition;
+    border-color: #eadce2;
+  }
+
+  .ql-input:focus {
+    border-color: #ef7fa4;
+    box-shadow: 0 0 0 4px rgba(239, 45, 105, .08);
+  }
+
+  .ql-chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-black;
+    border-color: #f5d4df;
+    background: #fff7fa;
+    color: #b50e4d;
+  }
+
+  .ql-section-title {
+    @apply text-3xl font-black tracking-tight md:text-4xl;
+  }
+
+  .ql-kicker {
+    @apply inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[11px] font-black;
+    background: #fff0f5;
+    color: #c50e50;
+  }
+
+  .ql-page-card {
+    @apply rounded-[32px] border border-rose-100 bg-white shadow-[0_20px_60px_rgba(77,14,39,0.07)];
+  }
+
+  .ql-stat-card {
+    @apply rounded-[24px] border border-rose-100 bg-white p-5 shadow-[0_12px_35px_rgba(77,14,39,0.055)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(77,14,39,0.1)];
+  }
+
+  .ql-title {
+    @apply text-2xl font-black tracking-tight text-[#3a0c20] md:text-3xl;
+  }
+
+  .ql-muted {
+    @apply text-sm font-bold leading-7 text-slate-500;
+  }
+}
+
+@keyframes qlFloat {
+
+  0%,
+  100% {
+    transform: translateY(0)
+  }
+
+  50% {
+    transform: translateY(-7px)
+  }
+}
+
+@keyframes qlPulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(239, 45, 105, .14)
+  }
+
+  50% {
+    box-shadow: 0 0 0 12px rgba(239, 45, 105, 0)
+  }
+}
+
+@keyframes qlFade {
+  from {
+    opacity: 0;
+    transform: translateY(12px)
+  }
+
+  to {
+    opacity: 1;
+    transform: none
+  }
+}
+
+.ql-fade {
+  animation: qlFade .55s ease both;
+}
+
+.ql-float {
+  animation: qlFloat 4s ease-in-out infinite;
+}
+
+.ql-live-dot {
+  animation: qlPulse 2s ease-in-out infinite;
+}
+
+.ql-gradient-text {
+  background: linear-gradient(100deg, #c51155 0%, #ef3e79 42%, #7d2d88 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-premium {
+  background: linear-gradient(125deg, rgba(255, 255, 255, .98) 0%, rgba(255, 247, 250, .96) 50%, rgba(255, 237, 244, .98) 100%);
+}
+
+.founder-card {
+  background: radial-gradient(circle at 8% 8%, rgba(250, 204, 21, .09), transparent 17rem), linear-gradient(135deg, #fff 0%, #fffafd 100%);
+}
+
+.founder-meter {
+  background: radial-gradient(circle at 78% 18%, rgba(255, 214, 102, .32), transparent 14rem), radial-gradient(circle at 18% 78%, rgba(167, 243, 208, .28), transparent 13rem), linear-gradient(145deg, #fff8df 0%, #fff5eb 50%, #f3fbf6 100%);
+}
+
+.ql-section-title {
+  background: linear-gradient(100deg, #35101f 0%, #7f173f 58%, #c41459 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Homepage V3 polish */
+@media (min-width: 1280px) {
+  .ql-container {
+    max-width: 1220px;
+  }
+}
+
+/* Homepage approved visual target V2 */
+.ql-floral-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .45rem;
+  color: #ec3d77;
+  opacity: .72;
+}
+
+.ql-floral-divider::before,
+.ql-floral-divider::after {
+  content: "";
+  width: min(30vw, 260px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #f3c7d5, #ea7ea2);
+}
+
+.ql-floral-divider::after {
+  transform: scaleX(-1);
+}
+
+.ql-floral-divider span {
+  font-size: .8rem;
+}
+
+.ql-floral-divider i {
+  font-size: 1.05rem;
+  font-style: normal;
+  color: #dba36c;
+}
+
+/* Homepage MASTER reference — dense romantic framing */
+.ql-hero-master::before,
+.ql-hero-master::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: -5;
+  pointer-events: none;
+  opacity: .95;
+  background:
+    radial-gradient(circle at 32% 17%, rgba(255, 104, 147, .98) 0 12px, transparent 13px),
+    radial-gradient(circle at 70% 30%, rgba(184, 13, 73, .92) 0 17px, transparent 18px),
+    radial-gradient(circle at 28% 48%, rgba(255, 173, 195, .92) 0 22px, transparent 23px),
+    radial-gradient(circle at 76% 67%, rgba(233, 45, 105, .92) 0 15px, transparent 16px),
+    radial-gradient(circle at 38% 84%, rgba(255, 199, 213, .96) 0 20px, transparent 21px),
+    linear-gradient(90deg, rgba(255, 218, 228, .32), transparent 86%);
+  filter: blur(.15px) saturate(1.1);
+}
+
+.ql-hero-master::before {
+  left: 0;
+}
+
+.ql-hero-master::after {
+  right: 0;
+  transform: scaleX(-1);
+}
+
+.ql-trust-strip {
+  box-shadow: inset 0 1px 0 #fff, 0 10px 30px rgba(101, 16, 52, .04);
+}
+
+.ql-petal-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.ql-petal-section::before,
+.ql-petal-section::after {
+  content: "♥";
+  position: absolute;
+  z-index: 0;
+  color: #ff7da8;
+  font-size: 20px;
+  opacity: .18;
+  pointer-events: none;
+  filter: drop-shadow(0 8px 14px rgba(224, 37, 100, .12));
+}
+
+.ql-petal-section::before {
+  left: 2.2%;
+  top: 16%;
+  transform: rotate(-18deg);
+}
+
+.ql-petal-section::after {
+  right: 2.5%;
+  bottom: 15%;
+  transform: rotate(14deg) scale(1.4);
+}
+
+.ql-petal-section>* {
+  position: relative;
+  z-index: 1;
+}
+
+.ql-petal-section {
+  border-left: 1px solid rgba(250, 190, 210, .34);
+  border-right: 1px solid rgba(250, 190, 210, .34);
+}
+
+.ql-petal-section h2 {
+  letter-spacing: -.035em;
+}
+
+.ql-cta-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.ql-cta-ribbon::before {
+  content: "💌  ♥  ♥";
+  position: absolute;
+  left: 28px;
+  top: 3px;
+  font-size: 44px;
+  letter-spacing: 8px;
+  opacity: .33;
+  transform: rotate(-5deg);
+}
+
+.ql-cta-ribbon::after {
+  content: "♥ ♡ ♥";
+  position: absolute;
+  right: 24px;
+  bottom: 4px;
+  color: #fff;
+  font-size: 42px;
+  letter-spacing: 6px;
+  opacity: .22;
+}
+
+@media (max-width: 1023px) {
+
+  .ql-hero-master::before,
+  .ql-hero-master::after {
+    width: 65px;
+    opacity: .55;
+  }
+}
+
+/* Homepage final visual lock — approved reference */
+.ql-hero-master {
+  min-height: 430px;
+}
+
+.ql-hero-master>img {
+  object-position: 48% 46% !important;
+}
+
+.ql-hero-master::before,
+.ql-hero-master::after {
+  width: 82px;
+  opacity: .72;
+}
+
+.ql-adam-hawa {
+  position: relative;
+  overflow: hidden;
+}
+
+.ql-adam-hawa::before,
+.ql-adam-hawa::after {
+  content: "♥";
+  position: absolute;
+  color: #f66f9d;
+  opacity: .12;
+  font-size: 34px;
+  pointer-events: none;
+}
+
+.ql-adam-hawa::before {
+  left: 2.5%;
+  top: 18%;
+  transform: rotate(-18deg);
+}
+
+.ql-adam-hawa::after {
+  right: 2.5%;
+  bottom: 14%;
+  transform: rotate(16deg);
+}
+
+.ql-cta-ribbon {
+  isolation: isolate;
+}
+
+.ql-cta-ribbon::before,
+.ql-cta-ribbon::after {
+  display: none !important;
+}
+
+@media (max-width: 1023px) {
+  .ql-hero-master {
+    min-height: 560px;
+  }
+
+  .ql-hero-master>img {
+    object-position: 38% 50% !important;
+  }
+}
+
+/* Homepage final matching pass */
+.ql-hero-master>img {
+  object-position: 41% 49% !important;
+}
+
+.ql-adam-hawa img {
+  background: transparent !important;
+}
+
+.ql-adam-hawa .relative {
+  isolation: isolate;
+}
+
+.ql-petal-section {
+  scroll-margin-top: 76px;
+}
+
+@media (min-width: 1280px) {
+  .ql-hero-master>div {
+    min-height: 455px !important;
+  }
+}
+
+/* Homepage final micro-polish — locked pass */
+.ql-trust-strip+.ql-floral-divider {
+  padding-top: .35rem !important;
+  padding-bottom: .35rem !important;
+}
+
+.ql-trust-strip+.ql-floral-divider+.ql-petal-section {
+  padding-top: .65rem !important;
+}
+
+.ql-petal-section .grid.xl\:grid-cols-6 {
+  gap: .7rem;
+}
+
+.ql-cta-ribbon>img {
+  object-position: center 48% !important;
+  filter: saturate(1.06) contrast(1.03);
+}
+
+@media (min-width: 1024px) {
+  .ql-adam-hawa .grid {
+    min-height: 230px;
+  }
+
+  .ql-adam-hawa img {
+    transform: translateX(-1.5%) scale(1.02);
+  }
+}
+
+
+/* Final homepage polish: colorful nav + Adam/Hawa readability */
+@media (min-width: 1280px) {
+  header nav {
+    gap: .4rem !important;
+  }
+}
+
+.ql-adam-hawa img {
+  z-index: 5 !important;
+}
+
+.ql-adam-hawa .relative>.relative.z-20 {
+  z-index: 20 !important;
+}
+
+/* Final three-fix pass: Adam/Hawa, advice icons, member portraits */
+.ql-adam-hawa img {
+  transform: translateX(-2.5%) scale(.96) !important;
+}
+
+.ql-adam-hawa .grid>div:last-child>div span {
+  min-height: 2.5rem !important;
+  max-height: 2.5rem !important;
+}
+
+
+/* Signup final: keep content height natural and never let sticky rails create dead white space. */
+.ql-signup-grid>div:last-child>aside {
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+.ql-signup-grid>div:last-child>aside>div {
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+html {
+  scroll-padding-top: 78px;
+}
+
+:root {
+  --ql-primary: #E11D48;
+  --ql-deep: #4A1942;
+  --ql-bg: #FFF5F7;
+  --ql-text: #1F2937;
+  --ql-muted: #6B7280;
+}
+
+html,
+body {
+  font-family: Cairo, Tahoma, Arial, sans-serif;
+}
+
+.ql-step-enter {
+  animation: qlStepEnter .30s ease both;
+}
+
+@keyframes qlStepEnter {
+  from {
+    opacity: 0;
+    transform: translateX(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 1023px) {
+  .ql-signup-grid {
+    display: block !important;
+  }
+}
+
+[data-validation-error="true"] {
+  border-radius: 18px;
+  outline: 2px solid #ef4444;
+  outline-offset: 6px;
+  background: rgba(254, 242, 242, .55);
+  animation: qlErrorPulse .55s ease;
+}
+
+@keyframes qlErrorPulse {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  30% {
+    transform: translateX(5px);
+  }
+
+  60% {
+    transform: translateX(-5px);
+  }
+}
+
+.ql-confetti {
+  animation: qlConfetti 1.1s ease-out infinite alternate;
+}
+
+@keyframes qlConfetti {
+  from {
+    transform: translateY(-12px) rotate(0deg);
+    opacity: .9;
+  }
+
+  to {
+    transform: translateY(34px) rotate(220deg);
+    opacity: .2;
+  }
+}
+
+/* Signup V9: compact premium floral experience */
+.ql-signup-shell {
+  --ql-rose: #E11D48;
+  --ql-deep: #4A1942;
+}
+
+.ql-floral-bg {
+  background:
+    radial-gradient(circle at 6% 14%, rgba(225, 29, 72, .08) 0 8px, transparent 9px),
+    radial-gradient(circle at 9% 18%, rgba(244, 114, 182, .09) 0 13px, transparent 14px),
+    radial-gradient(circle at 94% 42%, rgba(225, 29, 72, .07) 0 9px, transparent 10px),
+    radial-gradient(circle at 91% 47%, rgba(251, 191, 36, .07) 0 15px, transparent 16px);
+}
+
+.ql-signup-hero:before,
+.ql-floating-card:before {
+  content: "";
+  position: absolute;
+  width: 74px;
+  height: 74px;
+  border-radius: 999px;
+  pointer-events: none;
+  opacity: .55;
+  background: radial-gradient(circle at 50% 50%, #ffe4ec 0 18%, transparent 19%), radial-gradient(circle at 28% 42%, #ffc4d6 0 13%, transparent 14%), radial-gradient(circle at 72% 42%, #ffc4d6 0 13%, transparent 14%), radial-gradient(circle at 40% 72%, #ffd6a7 0 12%, transparent 13%), radial-gradient(circle at 67% 70%, #ffd6a7 0 12%, transparent 13%);
+}
+
+.ql-signup-hero:before {
+  right: -26px;
+  bottom: -26px
+}
+
+.ql-floating-card {
+  position: relative
+}
+
+.ql-floating-card:before {
+  left: -32px;
+  top: 58px
+}
+
+.ql-rosette {
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 0 16%, #e11d48 17% 33%, #ffd4e0 34% 55%, #e11d48 56% 67%, transparent 68%)
+}
+
+.ql-trust-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid #f4d5df;
+  background: #fff8fb;
+  border-radius: 999px;
+  padding: 5px 9px;
+  font-size: 10px;
+  font-weight: 900;
+  color: #6e2848
+}
+
+.ql-mini-option {
+  min-height: 52px;
+  border: 1px solid #ead9df;
+  background: #fff;
+  border-radius: 13px;
+  padding: 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 900;
+  color: #5d5057;
+  transition: .18s
+}
+
+.ql-mini-option:hover {
+  border-color: #f3a9bc;
+  background: #fff8fb
+}
+
+.ql-mini-option.is-active {
+  border-color: #e11d48;
+  background: #fff1f5;
+  color: #9f1239;
+  box-shadow: 0 0 0 2px rgba(225, 29, 72, .07)
+}
+
+.ql-group-title {
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 900;
+  color: #2c2530
+}
+
+.ql-visual-option {
+  min-height: 74px;
+  border: 1px solid #ead9df;
+  background: #fff;
+  border-radius: 14px;
+  padding: 7px 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 9px;
+  font-weight: 900;
+  color: #5f5158;
+  transition: .18s
+}
+
+.ql-visual-option:hover {
+  border-color: #f1a8bb;
+  transform: translateY(-1px)
+}
+
+.ql-visual-option.is-active {
+  border-color: #e11d48;
+  background: #fff1f5;
+  color: #9f1239;
+  box-shadow: 0 0 0 2px rgba(225, 29, 72, .07)
+}
+
+.ql-slider-card {
+  height: 58px;
+  border: 1px solid #ead9df;
+  border-radius: 14px;
+  background: #fff8fb;
+  padding: 7px 10px
+}
+
+.ql-slider-card b {
+  display: block;
+  margin-bottom: 4px;
+  text-align: center;
+  font-size: 12px;
+  color: #4a1942
+}
+
+.ql-slider-card input {
+  width: 100%;
+  accent-color: #e11d48
+}
+
+.ql-skin {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 1px #dcc7d0
+}
+
+.ql-eye {
+  position: relative;
+  width: 42px;
+  height: 23px;
+  border-radius: 70% 18% 70% 18%/70% 20% 70% 20%;
+  background: #fff;
+  border: 1.5px solid #cfaab9;
+  transform: rotate(-5deg);
+  box-shadow: inset 0 -3px 5px rgba(90, 40, 55, .08)
+}
+
+.ql-eye i {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 17px;
+  height: 17px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 4px rgba(255, 255, 255, .2)
+}
+
+.ql-eye i:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #151515
+}
+
+.ql-hair {
+  width: 38px;
+  height: 29px;
+  border-radius: 55% 55% 28% 28%;
+  box-shadow: inset -7px -5px 0 rgba(255, 255, 255, .08), 0 2px 4px rgba(0, 0, 0, .12)
+}
+
+.ql-body {
+  position: relative;
+  width: 31px;
+  height: 37px;
+  border-radius: 13px 13px 9px 9px;
+  background: linear-gradient(#b84b79, #773052)
+}
+
+.ql-body:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -10px;
+  width: 14px;
+  height: 14px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: #d8b29d
+}
+
+.ql-body-slim {
+  transform: scaleX(.72)
+}
+
+.ql-body-mid {
+  transform: scaleX(.9)
+}
+
+.ql-body-fit {
+  clip-path: polygon(15% 0, 85% 0, 70% 100%, 30% 100%)
+}
+
+.ql-body-full {
+  transform: scaleX(1.12);
+  border-radius: 16px
+}
+
+.ql-face {
+  position: relative;
+  width: 31px;
+  height: 34px;
+  border-radius: 45% 45% 48% 48%;
+  background: #ddb18c
+}
+
+.ql-face:before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  right: 5px;
+  top: 11px;
+  height: 2px;
+  border-radius: 9px;
+  background: #4a2c25;
+  box-shadow: 0 6px 0 -1px #9b5f50
+}
+
+.ql-face i {
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  bottom: 3px;
+  height: 0;
+  border-radius: 0 0 10px 10px;
+  background: #49312e
+}
+
+.ql-face-light i {
+  height: 5px;
+  opacity: .5
+}
+
+.ql-face-medium i {
+  height: 9px;
+  opacity: .75
+}
+
+.ql-face-full i {
+  height: 13px
+}
+
+.ql-face-none i {
+  display: none
+}
+
+.ql-hijab {
+  position: relative;
+  width: 35px;
+  height: 39px;
+  border-radius: 50% 50% 42% 42%;
+  background: #a94975
+}
+
+.ql-hijab i {
+  position: absolute;
+  left: 50%;
+  top: 7px;
+  width: 18px;
+  height: 22px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: #ddb18c
+}
+
+.ql-hijab-none {
+  background: linear-gradient(#5a3628 0 35%, #ddb18c 36%)
+}
+
+.ql-hijab-hijab {
+  background: #a94975
+}
+
+.ql-hijab-khimar {
+  height: 43px;
+  border-radius: 50% 50% 22% 22%
+}
+
+.ql-hijab-niqab i {
+  height: 9px;
+  top: 11px;
+  border-radius: 3px
+}
+
+.ql-hijab-niqab:after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  top: 14px;
+  height: 3px;
+  background: #2a1720
+}
+
+.ql-outfit {
+  position: relative;
+  width: 34px;
+  height: 36px;
+  background: linear-gradient(145deg, #7b3157, #d0638c);
+  clip-path: polygon(24% 0, 76% 0, 100% 24%, 82% 100%, 18% 100%, 0 24%)
+}
+
+.ql-outfit i {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 11px;
+  height: 8px;
+  transform: translateX(-50%);
+  border-radius: 0 0 9px 9px;
+  background: #fff8fb
+}
+
+.ql-outfit-s2 {
+  background: linear-gradient(145deg, #876c60, #c4a391)
+}
+
+.ql-outfit-s3 {
+  background: linear-gradient(145deg, #344b67, #6686a4)
+}
+
+.ql-outfit-s4 {
+  background: linear-gradient(145deg, #262530, #68616c)
+}
+
+.ql-outfit-s5 {
+  background: linear-gradient(145deg, #81573a, #c39163)
+}
+
+[data-validation-error="true"] {
+  outline-width: 1px !important;
+  outline-offset: 3px !important
+}
+
+@media (max-width:1023px) {
+  .ql-signup-grid {
+    display: block !important
+  }
+
+  .ql-floating-card:before {
+    display: none
+  }
+}
+
+/* Signup V10 — final visual lock */
+.ql-scroll-panel {
+  scrollbar-width: thin;
+  scrollbar-color: #ef8eaa #fff5f7
+}
+
+.ql-scroll-panel::-webkit-scrollbar {
+  width: 7px
+}
+
+.ql-scroll-panel::-webkit-scrollbar-track {
+  background: #fff5f7;
+  border-radius: 999px
+}
+
+.ql-scroll-panel::-webkit-scrollbar-thumb {
+  background: #ef8eaa;
+  border-radius: 999px
+}
+
+.ql-photo-choice {
+  position: relative;
+  min-height: 102px;
+  border: 1px solid #ead9df;
+  background: #fff;
+  border-radius: 15px;
+  padding: 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 900;
+  color: #5b4d54;
+  transition: .18s
+}
+
+.ql-photo-choice:hover {
+  transform: translateY(-1px);
+  border-color: #ef9bb3;
+  box-shadow: 0 8px 22px rgba(147, 43, 80, .08)
+}
+
+.ql-photo-choice.is-active {
+  border-color: #e11d48;
+  background: #fff5f8;
+  color: #9f1239;
+  box-shadow: 0 0 0 2px rgba(225, 29, 72, .08)
+}
+
+.ql-photo-thumb {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 64px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #fff5f7
+}
+
+.ql-choice-check {
+  position: absolute;
+  left: 7px;
+  top: 7px;
+  color: #10b981;
+  background: #fff;
+  border-radius: 999px
+}
+
+.ql-swatch-choice {
+  min-height: 66px;
+  border: 1px solid #ead9df;
+  background: #fff;
+  border-radius: 14px;
+  padding: 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px
+}
+
+.ql-swatch-choice>span {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 1px #d8c4cc
+}
+
+.ql-swatch-choice>b {
+  font-size: 9px;
+  color: #64565d
+}
+
+.ql-swatch-choice.is-active {
+  border-color: #e11d48;
+  background: #fff5f8
+}
+
+.ql-beard-choice,
+.ql-icon-choice,
+.ql-religion-choice {
+  min-height: 82px;
+  border: 1px solid #ead9df;
+  background: #fff;
+  border-radius: 14px;
+  padding: 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 9px;
+  font-weight: 900;
+  color: #5b4d54
+}
+
+.ql-beard-choice.is-active,
+.ql-icon-choice.is-active,
+.ql-religion-choice.is-active {
+  border-color: #e11d48;
+  background: #fff5f8;
+  color: #9f1239;
+  box-shadow: 0 0 0 2px rgba(225, 29, 72, .07)
+}
+
+.ql-icon-choice>span,
+.ql-religion-choice>span {
+  font-size: 25px
+}
+
+.ql-beard-face {
+  position: relative;
+  width: 36px;
+  height: 41px;
+  border-radius: 45% 45% 48% 48%;
+  background: #ddb18c;
+  box-shadow: inset 0 8px 0 #4d3026
+}
+
+.ql-beard-face:before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  right: 7px;
+  top: 18px;
+  height: 2px;
+  border-radius: 9px;
+  background: #4a2c25;
+  box-shadow: 0 7px 0 -1px #925948
+}
+
+.ql-beard-face:after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  bottom: 2px;
+  height: 0;
+  border-radius: 0 0 12px 12px;
+  background: #49312e
+}
+
+.ql-beard-face.b1:after {
+  height: 6px;
+  opacity: .55
+}
+
+.ql-beard-face.b2:after {
+  height: 11px;
+  opacity: .82
+}
+
+.ql-beard-face.b3:after {
+  height: 16px
+}
+
+/* QalbyLove unified floating floral visual system — site-v2 */
+.ql-founder-ribbon {
+  background: linear-gradient(90deg, #4A1942 0%, #74113f 48%, #9d1a55 100%);
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, .09);
+}
+
+.ql-global-floral-stage,
+.ql-floral-stage {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 4% 11%, rgba(255, 174, 200, .18), transparent 16rem),
+    radial-gradient(circle at 96% 18%, rgba(255, 213, 227, .22), transparent 18rem),
+    linear-gradient(180deg, #fff8fb 0%, #fffdfd 46%, #fff7fa 100%);
+}
+
+.ql-global-floral-stage::before,
+.ql-floral-stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-image: url('/images/site-v2/floral/bg-01.webp');
+  background-size: cover;
+  background-position: center top;
+  opacity: .105;
+  filter: saturate(.92);
+}
+
+.ql-global-floral-stage::after,
+.ql-floral-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 7% 30%, rgba(238, 45, 105, .12) 0 4px, transparent 5px),
+    radial-gradient(circle at 12% 52%, rgba(255, 177, 199, .17) 0 7px, transparent 8px),
+    radial-gradient(circle at 90% 38%, rgba(238, 45, 105, .12) 0 5px, transparent 6px),
+    radial-gradient(circle at 94% 70%, rgba(255, 193, 210, .18) 0 9px, transparent 10px);
+}
+
+.ql-signup-shell .ql-signup-hero,
+.ql-signup-shell .ql-signup-grid>* {
+  box-shadow: 0 22px 68px rgba(94, 18, 52, .09) !important;
+}
+
+.ql-signup-shell .ql-signup-grid {
+  filter: drop-shadow(0 14px 30px rgba(114, 24, 62, .03));
+}
+
+@media (min-width:1024px) {
+  .ql-signup-shell {
+    padding-top: 14px !important;
+    padding-bottom: 18px !important
+  }
+}
+
+.ql-home-floating-hero {
+  width: calc(100% - 2rem);
+}
+
+@media (max-width:767px) {
+  .ql-home-floating-hero {
+    width: calc(100% - 1rem);
+    border-radius: 24px
+  }
+}
+
+
+/* QALBYLOVE APP FINAL — unified romantic visual rhythm */
+.ql-global-floral-stage {
+  position: relative;
+  isolation: isolate;
+  background: linear-gradient(180deg, #fff9fb 0%, #fff 38%, #fff8fb 100%)
+}
+
+.ql-global-floral-stage::before,
+.ql-global-floral-stage::after {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .11;
+  background-repeat: no-repeat;
+  background-size: contain
+}
+
+.ql-global-floral-stage::before {
+  inset: auto auto 2% -3%;
+  width: 260px;
+  height: 300px;
+  background-image: url('/images/site-v2/floral/bg-02.webp')
+}
+
+.ql-global-floral-stage::after {
+  inset: 12% -4% auto auto;
+  width: 280px;
+  height: 320px;
+  background-image: url('/images/site-v2/floral/bg-03.webp')
+}
+
+@media(max-width:767px) {
+
+  .ql-global-floral-stage::before,
+  .ql-global-floral-stage::after {
+    opacity: .055;
+    width: 150px;
+    height: 180px
+  }
+}
+
+/* QalbyLove final homepage atmosphere */
+.ql-home-stage {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 4% 16%, rgba(255, 210, 225, .32), transparent 22rem),
+    radial-gradient(circle at 96% 34%, rgba(204, 236, 218, .30), transparent 20rem),
+    linear-gradient(180deg, #fff8fb 0%, #fffdfd 32%, #fff8fb 100%);
+}
+
+.ql-home-stage::before,
+.ql-home-stage::after {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: .18;
+  filter: saturate(.92);
+}
+
+.ql-home-stage::before {
+  left: -55px;
+  bottom: -45px;
+  width: 330px;
+  height: 360px;
+  background-image: url('/images/site-v2/floral/bg-18.webp');
+  animation: qlPetalFloat 11s ease-in-out infinite
+}
+
+.ql-home-stage::after {
+  right: -55px;
+  top: 190px;
+  width: 320px;
+  height: 350px;
+  background-image: url('/images/site-v2/floral/bg-04.webp');
+  animation: qlPetalFloat 13s ease-in-out infinite reverse
+}
+
+.ql-floral-zone {
+  position: relative;
+  background: linear-gradient(180deg, rgba(255, 249, 251, .85), rgba(255, 255, 255, .95));
+}
+
+.ql-floral-zone::before,
+.ql-floral-zone::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: .12
+}
+
+.ql-floral-zone::before {
+  left: -45px;
+  top: 5%;
+  width: 220px;
+  height: 240px;
+  background-image: url('/images/site-v2/floral/bg-02.webp')
+}
+
+.ql-floral-zone::after {
+  right: -50px;
+  bottom: 0;
+  width: 230px;
+  height: 250px;
+  background-image: url('/images/site-v2/floral/bg-03.webp')
+}
+
+@media(max-width:767px) {
+
+  .ql-home-stage::before,
+  .ql-home-stage::after,
+  .ql-floral-zone::before,
+  .ql-floral-zone::after {
+    opacity: .07;
+    width: 150px;
+    height: 170px
+  }
+
+  .ql-home-hero {
+    border-radius: 24px !important
+  }
+}
+
+img {
+  -webkit-user-drag: none;
+  user-select: none
+}
+
+@keyframes qlPetalFloat {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg)
+  }
+
+  50% {
+    transform: translate3d(0, -14px, 0) rotate(1.5deg)
+  }
+}
+
+@media (prefers-reduced-motion:reduce) {
+
+  .ql-home-stage::before,
+  .ql-home-stage::after {
+    animation: none !important
+  }
+}
+
+/* QalbyLove homepage final frame + seamless floral depth */
+.ql-page-frame {
+  position: fixed;
+  inset: 7px 8px 7px 7px;
+  z-index: 119;
+  pointer-events: none;
+  border: 1.5px solid rgba(201, 151, 45, .82);
+  border-radius: 28px;
+  box-shadow:
+    inset 0 0 0 4px rgba(255, 255, 255, .50),
+    inset 0 0 0 6px rgba(244, 128, 166, .30),
+    0 0 0 1px rgba(255, 225, 235, .38);
+}
+
+.ql-home-stage {
+  border-inline: 1px solid rgba(205, 159, 62, .28)
+}
+
+.ql-home-stage::before,
+.ql-home-stage::after,
+.ql-floral-zone::before,
+.ql-floral-zone::after {
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 18%, rgba(0, 0, 0, .88) 44%, transparent 76%);
+  mask-image: radial-gradient(ellipse at center, #000 18%, rgba(0, 0, 0, .88) 44%, transparent 76%);
+}
+
+@media(max-width:767px) {
+  .ql-page-frame {
+    inset: 3px 4px 3px 3px;
+    border-radius: 20px;
+    border-width: 1px;
+    box-shadow: inset 0 0 0 3px rgba(255, 255, 255, .48), inset 0 0 0 4px rgba(244, 128, 166, .24)
+  }
+}
+
+@keyframes ql-heartbeat {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  18% {
+    transform: scale(1.16);
+  }
+
+  36% {
+    transform: scale(1);
+  }
+
+  54% {
+    transform: scale(1.12);
+  }
+
+  72% {
+    transform: scale(1);
+  }
+}
+
+.ql-heart-action:hover svg {
+  animation: ql-heartbeat 1.05s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ql-heart-action:hover svg {
+    animation: none;
+  }
+}
+
+/* V6 compact romantic reference pass */
+.ql-page-frame {
+  inset: 5px 6px 5px 5px !important;
+  border: 2px solid rgba(239, 45, 105, .72) !important;
+  border-radius: 26px !important;
+  box-shadow:
+    inset 0 0 0 3px rgba(255, 255, 255, .72),
+    inset 0 0 0 5px rgba(244, 128, 166, .28),
+    0 0 0 1px rgba(255, 211, 226, .55) !important;
+}
+
+.ql-home-stage {
+  border-inline: 1px solid rgba(239, 45, 105, .26) !important;
+  background:
+    radial-gradient(circle at 2% 18%, rgba(255, 196, 216, .30), transparent 16rem),
+    radial-gradient(circle at 98% 34%, rgba(255, 210, 224, .28), transparent 18rem),
+    linear-gradient(180deg, #fffafb 0%, #fff 42%, #fff9fb 100%) !important;
+}
+
+.ql-home-stage::before,
+.ql-home-stage::after {
+  opacity: .24 !important;
+  filter: saturate(1.04) !important
+}
+
+.ql-hero-reference {
+  box-shadow: 0 18px 50px rgba(108, 18, 56, .12), 0 0 0 1px rgba(255, 255, 255, .72) inset !important
+}
+
+.ql-hero-reference::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(239, 45, 105, .20), inset 0 -26px 60px rgba(244, 93, 142, .05);
+}
+
+.ql-petal {
+  position: absolute;
+  z-index: 4;
+  pointer-events: none;
+  color: #ef4f82;
+  filter: drop-shadow(0 8px 14px rgba(225, 29, 72, .12));
+  opacity: .38
+}
+
+.petal-one {
+  left: 47%;
+  top: 12%;
+  font-size: 28px;
+  transform: rotate(-18deg)
+}
+
+.petal-two {
+  left: 44%;
+  bottom: 14%;
+  font-size: 18px;
+  color: #d5a028;
+  transform: rotate(12deg)
+}
+
+.petal-three {
+  right: 3%;
+  bottom: 8%;
+  font-size: 34px;
+  transform: rotate(12deg)
+}
+
+.ql-members-zone {
+  border-top: 1px solid rgba(239, 45, 105, .12);
+  border-bottom: 1px solid rgba(239, 45, 105, .12)
+}
+
+.ql-members-grid article {
+  border-radius: 20px !important
+}
+
+.ql-members-grid article>button>div {
+  height: 170px !important
+}
+
+.ql-members-grid article>div {
+  padding: .5rem !important
+}
+
+.ql-members-grid article button {
+  font-size: .72rem
+}
+
+.ql-members-grid article img {
+  object-position: center 22% !important
+}
+
+.ql-founder-compact .ql-container {
+  padding-top: .8rem !important;
+  padding-bottom: .8rem !important;
+  max-width: 1200px !important
+}
+
+.ql-founder-compact .ql-container>div {
+  border-radius: 24px !important
+}
+
+.ql-founder-compact .ql-container>div>div>div:first-child {
+  padding: 1rem 1.2rem !important
+}
+
+.ql-founder-compact h2 {
+  margin-top: .55rem !important;
+  font-size: 1.65rem !important;
+  line-height: 1.25 !important
+}
+
+.ql-founder-compact p {
+  margin-top: .45rem !important;
+  line-height: 1.55 !important;
+  font-size: .75rem !important
+}
+
+.ql-founder-compact .mt-5 {
+  margin-top: .7rem !important
+}
+
+.ql-founder-compact .lg\:grid-cols-\[1fr_340px\] {
+  grid-template-columns: 1fr 250px !important
+}
+
+.ql-floral-zone {
+  background: linear-gradient(180deg, rgba(255, 249, 251, .76), rgba(255, 255, 255, .94)) !important
+}
+
+.ql-floral-zone::before,
+.ql-floral-zone::after {
+  opacity: .16 !important
+}
+
+main.ql-home-stage section {
+  scroll-margin-top: 86px
+}
+
+@media (min-width:1280px) {
+
+  .ql-home-shell,
+  .ql-home-stage section>.mx-auto {
+    max-width: 1450px
+  }
+}
+
+@media (max-width:1023px) {
+  .ql-page-frame {
+    inset: 3px !important;
+    border-width: 1px !important
+  }
+
+  .ql-members-grid article>button>div {
+    height: 190px !important
+  }
+}
+
+/* V7 — compact polish, stronger reference frame, tighter visual rhythm */
+.ql-home-stage {
+  padding-bottom: 0 !important
+}
+
+.ql-home-stage .ql-floral-zone {
+  overflow: hidden
+}
+
+.ql-home-stage section {
+  position: relative
+}
+
+.ql-home-stage section+section {
+  margin-top: 0 !important
+}
+
+.ql-home-stage .ql-section-card {
+  position: relative
+}
+
+.ql-home-stage .ql-section-card::before,
+.ql-home-stage .ql-section-card::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 999px;
+  opacity: .72
+}
+
+.ql-home-stage .ql-section-card::before {
+  width: 11px;
+  height: 11px;
+  right: 14px;
+  top: 12px;
+  background: #f04d83;
+  box-shadow: 18px 9px 0 -3px #ffd2df
+}
+
+.ql-home-stage .ql-section-card::after {
+  width: 7px;
+  height: 7px;
+  left: 16px;
+  bottom: 13px;
+  background: #d4a128;
+  box-shadow: -14px -6px 0 -2px #f5c7d6
+}
+
+.ql-members-zone {
+  padding-top: .7rem !important;
+  padding-bottom: .75rem !important
+}
+
+.ql-members-grid {
+  align-items: start
+}
+
+.ql-members-grid article {
+  min-width: 0 !important;
+  max-width: none !important
+}
+
+.ql-members-grid article>button>div {
+  height: 150px !important
+}
+
+.ql-members-grid article img {
+  object-position: center 18% !important
+}
+
+.ql-members-grid article>div {
+  padding: .42rem !important
+}
+
+.ql-founder-compact {
+  margin: 0 !important
+}
+
+.ql-step-card {
+  box-shadow: 0 9px 24px rgba(99, 21, 57, .05) !important
+}
+
+.ql-step-card:hover {
+  transform: translateY(-2px);
+  transition: .18s ease
+}
+
+.ql-home-stage footer {
+  margin-top: .25rem !important
+}
+
+.ql-home-stage footer>div {
+  padding-top: 2rem !important;
+  padding-bottom: 1.3rem !important
+}
+
+.ql-home-stage footer .py-10,
+.ql-home-stage footer .py-12 {
+  padding-top: 1.75rem !important;
+  padding-bottom: 1.75rem !important
+}
+
+.ql-home-stage footer .mt-8 {
+  margin-top: 1rem !important
+}
+
+.ql-home-stage footer .pt-8 {
+  padding-top: 1rem !important
+}
+
+.ql-page-frame {
+  border-color: rgba(237, 39, 103, .82) !important;
+  box-shadow: inset 0 0 0 3px rgba(255, 255, 255, .78), inset 0 0 0 5px rgba(245, 118, 161, .32), 0 0 0 1px rgba(255, 211, 226, .62), 0 10px 32px rgba(122, 25, 63, .035) !important
+}
+
+.ql-home-stage::before {
+  opacity: .29 !important
+}
+
+.ql-home-stage::after {
+  opacity: .27 !important
+}
+
+@media(min-width:1280px) {
+  .ql-members-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr)) !important
+  }
+}
+
+@media(max-width:1279px) and (min-width:768px) {
+  .ql-members-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important
+  }
+}
+
+@media(max-width:767px) {
+  .ql-members-grid article>button>div {
+    height: 180px !important
+  }
+}
+
+/* FINAL DELIVERY — compact, crisp, no fog, full romantic frame */
+.ql-home-stage {
+  background: linear-gradient(180deg, #fff8fb 0%, #fff 38%, #fff9fb 100%) !important
+}
+
+.ql-home-stage section {
+  margin-top: 0 !important
+}
+
+.ql-page-frame {
+  inset: 4px !important;
+  border: 2px solid rgba(237, 39, 103, .78) !important;
+  border-radius: 24px !important;
+  box-shadow: inset 0 0 0 3px rgba(255, 255, 255, .78), inset 0 0 0 5px rgba(245, 118, 161, .26), 0 0 0 1px rgba(255, 211, 226, .60) !important
+}
+
+.ql-home-stage::before,
+.ql-home-stage::after {
+  opacity: .13 !important;
+  filter: none !important
+}
+
+.ql-home-stage img {
+  image-rendering: auto
+}
+
+@media(max-width:767px) {
+  .ql-page-frame {
+    inset: 2px !important;
+    border-width: 1px !important
+  }
+
+  .ql-home-stage footer {
+    padding-bottom: 0 !important
+  }
+}
+
+/* FINAL HEIGHT COMPRESSION — keep original width, reduce only vertical space */
+.ql-home-stage footer {
+  margin-top: 0 !important
+}
+
+.ql-home-stage footer>div {
+  padding-top: .75rem !important;
+  padding-bottom: .65rem !important
+}
+
+.ql-home-stage footer .border-t {
+  padding-top: .35rem !important;
+  padding-bottom: .35rem !important
+}
+
+.ql-home-stage section {
+  margin-block: 0 !important
+}
+
+.ql-home-stage img {
+  image-rendering: auto !important
+}
+
+@media(min-width:1280px) {
+  .ql-home-stage section {
+    width: 100%
+  }
+
+  .ql-home-stage section.mx-auto {
+    max-width: 1500px
+  }
+}
